@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS Platform | Tier 1 Bank Cluster</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --primary: #38bdf8;
+            --accent: #818cf8;
+            --text: #f1f5f9;
+        }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .dashboard {
+            background: var(--card);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            max-width: 600px;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        .status-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p { color: #94a3b8; line-height: 1.6; margin-bottom: 2rem; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+        }
+        .stat-item span { display: block; font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .stat-item label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: #64748b; }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="status-badge">● System Operational</div>
+        <h1>SaaS Platform Alpha</h1>
+        <p>This workload was deployed via <strong>ArgoCD GitOps</strong> onto a hardened <strong>RKE2 Cluster</strong> running on Rocky Linux 9. Environment: Tier 1 Production.</p>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span>0.0ms</span>
+                <label>Latency</label>
+            </div>
+            <div class="stat-item">
+                <span>100%</span>
+                <label>Uptime</label>
+            </div>
+            <div class="stat-item">
+                <span>2</span>
+                <label>Replicas</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
