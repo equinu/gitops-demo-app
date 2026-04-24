@@ -15,10 +15,19 @@ spec:
       labels:
         app: saas-frontend
     spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
       containers:
-      - name: web
-        image: nginx:1.25-alpine
-        ports:
+        - name: web
+          image: nginx:1.25-alpine
+          ports:
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
         - containerPort: 80
         resources:
           requests:
