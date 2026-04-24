@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-frontend-demo
+  namespace: default
+  labels:
+    app: saas-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: saas-frontend
+  template:
+    metadata:
+      labels:
+        app: saas-frontend
+    spec:
+      containers:
+      - name: web
+        image: nginx:1.25-alpine
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "10m"
+            memory: "32Mi"
+          limits:
+            cpu: "100m"
+            memory: "64Mi"
